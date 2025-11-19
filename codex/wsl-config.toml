@@ -1,0 +1,41 @@
+model                  = "gpt-5.1-codex"
+model_reasoning_effort = "high"
+
+project_doc_fallback_filenames = [".github/AGENTS.md"]
+
+[projects."/home/jandu/repos"]
+trust_level = "trusted"
+
+[projects."/home/jandu/repos/NBV"]
+trust_level = "trusted"
+
+[mcp_servers.upstash_context7]
+url              = "https://mcp.context7.com/mcp"
+env_http_headers = { CONTEXT7_API_KEY = "CONTEXT7_API_KEY" }
+gallery          = "https://api.mcp.github.com/2025-09-15/v0/servers/dcec7705-b81b-4e0f-8615-8032604be7ad"
+version          = "1.0.0"
+
+[mcp_servers.github_github_mcp_server]
+url                  = "https://api.githubcopilot.com/mcp/"
+type                 = "http"
+bearer_token_env_var = "GITHUB_PERSONAL_ACCESS_TOKEN"
+gallery              = "https://api.mcp.github.com/2025-09-15/v0/servers/ab12cd34-5678-90ef-1234-567890abcdef"
+version              = "0.13.0"
+
+[mcp_servers.code-index]
+type    = "stdio"
+command = "uvx"
+args    = ["code-index-mcp", "--project-path", "/home/jandu/repos/NBV"]
+
+
+[features]
+web_search_request = true #	Stable	Allow the model to issue web searches
+# rmcp_client = true #Experimental	Enable oauth support for streamable HTTP MCP servers
+
+# unified_exec	false	Experimental	Use the unified PTY-backed exec tool
+# streamable_shell	false	Experimental	Use the streamable exec-command/write-stdin pair
+# apply_patch_freeform	false	Beta	Include the freeform apply_patch tool
+# view_image_tool	true	Stable	Include the view_image tool
+# experimental_sandbox_command_assessment	false	Experimental	Enable model-based sandbox risk assessment
+# ghost_commit	false	Experimental	Create a ghost commit each turn
+# enable_experimental_windows_sandbox	false	Experimental	Use the Windows restricted-token sandbox
