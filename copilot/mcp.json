@@ -34,6 +34,23 @@
             ],
             "gallery": "https://api.mcp.github.com/2025-09-15/v0/servers/976a2f68-e16c-4e2b-9709-7133487f8c14",
             "version": "1.0.0"
+        },
+        "johannesbrandenburger/typst-mcp": {
+            // git clone https://github.com/johannesbrandenburger/typst-mcp.git
+            // git clone https://github.com/typst/typst.git
+            // cd typst-mcp
+            // uv sync
+            // cd ../typst
+            // cargo run --package typst-docs -- --assets-dir ../typst-mcp/typst-docs --out-file ../typst-mcp/typst-docs/main.json
+            "type": "stdio",
+            "command": "wsl",
+            "args": [
+                "-e",
+                "bash",
+                "-lc",
+                "cd /home/jandu/mcp-repos/typst-mcp && exec .venv/bin/python -u server.py"
+            ],
+            "version": "1.0.0"
         }
     },
     "inputs": [
