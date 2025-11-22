@@ -1,0 +1,43 @@
+model                  = "gpt-5.1-codex-max"
+model_reasoning_effort = "xhigh"
+
+[features]
+web_search_request = true #	Stable	Allow the model to issue web searches
+ghost_commit       = true
+
+[notice]
+"hide_gpt-5.1-codex-max_migration_prompt" = true
+
+[projects."/Users/jd/Desktop/repos/ama_ws25"]
+trust_level = "trusted"
+
+project_doc_fallback_filenames = ["AGENTS.md", ".githib/AGENTS.md"]
+
+[mcp_servers.upstash_context7]
+url              = "https://mcp.context7.com/mcp"
+env_http_headers = { CONTEXT7_API_KEY = "CONTEXT7_API_KEY" }
+gallery          = "https://api.mcp.github.com/2025-09-15/v0/servers/dcec7705-b81b-4e0f-8615-8032604be7ad"
+version          = "1.0.0"
+
+[mcp_servers.github_github_mcp_server]
+url                  = "https://api.githubcopilot.com/mcp/"
+type                 = "http"
+bearer_token_env_var = "GITHUB_PERSONAL_ACCESS_TOKEN"
+gallery              = "https://api.mcp.github.com/2025-09-15/v0/servers/ab12cd34-5678-90ef-1234-567890abcdef"
+version              = "0.13.0"
+
+[mcp_servers.wikipedia]
+command = "wikipedia-mcp"
+args    = ["--transport", "stdio", "--language", "en"]
+enabled = true
+
+
+[mcp_servers.jupyter]
+command = "jupyter-mcp-server"
+args    = ["--transport", "stdio"]
+enabled = true
+
+# [mcp_servers.code-index]
+# type    = "stdio"
+# command = "uvx"
+# args    = ["code-index-mcp", "--project-path", "/home/jandu/repos/NBV"]
